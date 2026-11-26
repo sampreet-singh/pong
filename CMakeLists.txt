@@ -6,6 +6,8 @@ find_package(SFML 3 REQUIRED COMPONENTS Graphics)
 
 add_executable(pong source/main.cpp)
 
+target_include_directories(pong PRIVATE headers)
+
 target_compile_features(pong PRIVATE cxx_std_17)
 
 target_link_libraries(pong PRIVATE SFML::Graphics)
