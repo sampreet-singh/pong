@@ -1,3 +1,3 @@
 #include "update.hpp"
 
-void update(World& world, Score& score, float deltaTime) {};
+void update(World& world, Score& score) {};
