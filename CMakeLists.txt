@@ -4,7 +4,9 @@ project(pong)
 
 find_package(SFML 3 REQUIRED COMPONENTS Graphics)
 
-add_executable(pong source/main.cpp)
+file(GLOB SOURCES CONFIGURE_DEPENDS source/*.cpp)
+
+add_executable(pong ${SOURCES})
 
 target_include_directories(pong PRIVATE headers)
 
