@@ -1,5 +1,7 @@
 #include "input.hpp"
 
+#include <SFML/Window/Keyboard.hpp>
+
 Input playerInput()
 {
     Input input{};
