@@ -1,37 +1,28 @@
 #include "render.hpp"
 
-#include "input.hpp"
-
-#include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/CircleShape.hpp>
 
-void render(sf::RenderWindow &window, const World &world, const Score &score)
+void render(sf::RenderWindow &window, World &world)
 {
-    static sf::CircleShape ball;
     static sf::RectangleShape leftPaddle;
     static sf::RectangleShape rightPaddle;
 
-    static bool firstRun = true;
+    static bool ready = false;
 
-    if (firstRun)
+    if (!ready)
     {
-        ball.setRadius(world.ball.radius);
-
         leftPaddle.setSize(world.leftPaddle.size);
         rightPaddle.setSize(world.rightPaddle.size);
 
-        firstRun = false;
+        ready = true;
     }
-
-    ball.setPosition(world.ball.position);
 
     leftPaddle.setPosition(world.leftPaddle.position);
     rightPaddle.setPosition(world.rightPaddle.position);
 
-    handleEvents(window);
     window.clear();
 
-    window.draw(ball);
     window.draw(leftPaddle);
     window.draw(rightPaddle);
 

@@ -1,23 +1,25 @@
-#include "render.hpp"
-#include "score.hpp"
-#include "update.hpp"
+#include "constants.hpp"
 #include "world.hpp"
+#include "update.hpp"
+#include "render.hpp"
 
 #include <SFML/Graphics.hpp>
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode({800, 600}), "Pong");
+    sf::Vector2 dimensions = {constants::window::width, constants::window::height};
+    sf::VideoMode videoMode(dimensions);
 
-    window.setFramerateLimit(60);
+    sf::RenderWindow window(videoMode, "Pong");
+    window.setFramerateLimit(constants::window::framerate);
 
-    Score score;
     World world;
+    world.reset();
 
     while (window.isOpen())
     {
-        update(world, score);
-        render(window, world, score);
+        update(window, world);
+        render(window, world);
     }
 
     return 0;

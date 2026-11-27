@@ -1,13 +1,9 @@
 #pragma once
 
-#include <SFML/Graphics/RenderWindow.hpp>
-
 struct Input
 {
-    float leftPaddle;
-    float rightPaddle;
+    float left;
+    float right;
 };
 
-Input playerInput();
-
-void handleEvents(sf::RenderWindow &window);
+Input keyboardInput();

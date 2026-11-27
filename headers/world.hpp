@@ -2,25 +2,24 @@
 
 #include <SFML/System/Vector2.hpp>
 
-struct Object
+struct Paddle
 {
     sf::Vector2f position;
-    sf::Vector2f velocity;
-};
-
-struct Ball : Object
-{
-    float radius;
-};
-
-struct Paddle : Object
-{
     sf::Vector2f size;
+};
+
+struct Ball
+{
+    sf::Vector2f position;
+    float radius;
 };
 
 struct World
 {
-    Ball ball;
     Paddle leftPaddle;
     Paddle rightPaddle;
+
+    Ball ball;
+
+    void reset();
 };

@@ -1,6 +1,7 @@
 #pragma once
 
-#include "score.hpp"
 #include "world.hpp"
 
-void update(World &world, Score &score);
+#include <SFML/Graphics/RenderWindow.hpp>
+
+void update(sf::RenderWindow &window, World &world);
